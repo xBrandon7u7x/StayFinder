@@ -16,22 +16,11 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/loc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtbienvenido"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:text="En el mapa puedes observar tu ubicacion y los hoteles que se encuentran cerca de ti."
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
     <Button
-        android:id="@+id/btnCerrarSesion"
+        android:id="@+id/btnbacktohome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cerrar Sesión"
+        android:text="Regresar"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp" />
@@ -39,10 +28,16 @@
     <com.google.android.gms.maps.MapView
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_below="@+id/loc"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         map:cameraZoom="10"
         map:uiRotateGestures="true"
-        map:uiZoomControls="true"/>
-    </RelativeLayout>
+        map:uiZoomControls="true"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="290dp"
+        android:layout_below="@+id/map"
+        android:layout_marginBottom="20dp" />
+</RelativeLayout>

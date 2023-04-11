@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                         FirebaseUser user = mAuth.getCurrentUser();
                         if (user != null) {
                             // Aquí puedes realizar acciones adicionales con el usuario logueado
-                            Intent intent = new Intent(MainActivity.this, UbiActivity.class);
+                            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                             startActivity(intent);
                         }
                     } else {

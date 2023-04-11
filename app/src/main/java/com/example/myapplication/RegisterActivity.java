@@ -90,7 +90,7 @@ public class RegisterActivity extends AppCompatActivity {
                             // Registro exitoso
                             Log.d("RegisterActivity", "createUserWithEmail:success");
                             Toast.makeText(RegisterActivity.this, "Registro exitoso.", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(RegisterActivity.this, UbiActivity.class);
+                            Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
                             startActivity(intent);
                         } else {
                             // Registro fallido
