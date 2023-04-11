@@ -8,7 +8,9 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,11 +30,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class UbiActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private Button backtohome;
     private GoogleMap mMap;
     private MapView mapView;
+    private ListView listViewHotels;
+    private ArrayAdapter<String> adapter;
+    private ArrayList<String> hotelList = new ArrayList<>();
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -50,7 +58,11 @@ public class UbiActivity extends AppCompatActivity implements OnMapReadyCallback
         });
 
         mapView.onCreate(savedInstanceState);
-        mapView.getMapAsync(this); // Registrar el callback para obtener el mapa cuando esté listo
+        mapView.getMapAsync(this);
+
+        listViewHotels = findViewById(R.id.listViewHotels);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, hotelList);
+        listViewHotels.setAdapter(adapter);
     }
 
     @Override
@@ -79,7 +91,7 @@ public class UbiActivity extends AppCompatActivity implements OnMapReadyCallback
 
             // Obtener hoteles cercanos
             String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lon +
-                    "&radius=5000&type=lodging&key=AIzaSyDE26FAH_KAqBBzzrBRPKcad3H6R5sEGN4"; // Reemplazar YOUR_API_KEY con tu propia clave de API de Google Places
+                    "&radius=4000&type=lodging&key=AIzaSyDE26FAH_KAqBBzzrBRPKcad3H6R5sEGN4";
 
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                     response -> {
@@ -92,10 +104,14 @@ public class UbiActivity extends AppCompatActivity implements OnMapReadyCallback
                                 double hotelLat = locationObj.getDouble("lat");
                                 double hotelLon = locationObj.getDouble("lng");
                                 String name = result.getString("name");
+                                String address = result.getString("vicinity"); // Obtener la dirección del hotel
+                                String hotelInfo = name + "\n" + address; // Concatenar nombre, dirección y teléfono del hotel
 
                                 // Agregar marcadores en el mapa para los hoteles encontrados
                                 LatLng hotelLatLng = new LatLng(hotelLat, hotelLon);
                                 mMap.addMarker(new MarkerOptions().position(hotelLatLng).title(name));
+                                hotelList.add(hotelInfo);
+                                adapter.notifyDataSetChanged();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
