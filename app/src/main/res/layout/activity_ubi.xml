@@ -2,12 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
     android:padding="16dp">
-
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
 
     <TextView
@@ -27,8 +23,8 @@
         android:layout_below="@+id/txtbienvenido"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:text="¿Donde estoy?"
-        android:textSize="24sp"
+        android:text="En el mapa puedes observar tu ubicacion y los hoteles que se encuentran cerca de ti."
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <Button
@@ -40,15 +36,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp" />
 
-    <Button
-        android:id="@+id/btnlocalizar"
-        android:layout_width="237dp"
-        android:layout_height="57dp"
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_below="@+id/loc"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="561dp"
-        android:text="Mostrarme en el mapa"
-        android:textSize="12sp" />
-
-</RelativeLayout>
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        map:cameraZoom="10"
+        map:uiRotateGestures="true"
+        map:uiZoomControls="true"/>
+    </RelativeLayout>
