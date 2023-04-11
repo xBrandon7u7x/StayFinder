@@ -95,7 +95,7 @@ public class RegisterActivity extends AppCompatActivity {
                         } else {
                             // Registro fallido
                             Log.w("RegisterActivity", "createUserWithEmail:failure", task.getException());
-
+                            Toast.makeText(RegisterActivity.this, "Registro fallido. Por favor, inténtelo de nuevo.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
