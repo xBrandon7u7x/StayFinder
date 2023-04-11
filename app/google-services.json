@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "233593409067",
+    "project_id": "stayfinder-674e5",
+    "storage_bucket": "stayfinder-674e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:233593409067:android:e4cfffae52c2057ba4646e",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "233593409067-tul0a150ik06dde2ul3i97tomt0b7263.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7DW9RPQbmkV3AHKoIhieJ-zYwFDM-kSw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "233593409067-tul0a150ik06dde2ul3i97tomt0b7263.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
